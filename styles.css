@@ -817,7 +817,7 @@ body.dark-mode {
   }
 }
 
-@media (max-width: 768px) {
+{
   .btn-primary,
   .btn-primary:active,
   .btn-primary:focus,
@@ -825,6 +825,7 @@ body.dark-mode {
       color: #fff !important;
   }
 }
+
 
 
 
