@@ -817,6 +817,17 @@ body.dark-mode {
   }
 }
 
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-primary:active,
+  .btn-primary:focus,
+  .btn-primary:visited {
+      color: #fff !important;
+  }
+}
+
+
+
 
 
 
