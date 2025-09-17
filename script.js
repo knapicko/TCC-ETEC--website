@@ -162,16 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Efeito parallax sutil no hero
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        
-        if (hero) {
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        }
-    });
+   
     
     // Lazy loading para imagens (se houver)
     const images = document.querySelectorAll('img[data-src]');
