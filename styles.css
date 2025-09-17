@@ -15,9 +15,9 @@
     --card-background: #ffffff;
     --border-color: #e9ecef;
     --shadow: rgba(0, 0, 0, 0.1);
-    
+
     /* Cores do tema escuro */
-    --dark-primary-color: #4dabf7;
+    --dark-primary-color: #4daaf7;
     --dark-secondary-color: #868e96;
     --dark-text-color: #ffffff;
     --dark-text-light: #e9ecef;
@@ -28,7 +28,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
@@ -97,7 +97,6 @@ body.dark-mode .logo-img {
     filter: brightness(0) invert(1);
 }
 
-/* Se você tiver uma logo específica para modo escuro, use esta classe */
 .logo-img-dark {
     display: none;
 }
@@ -110,7 +109,6 @@ body.dark-mode .logo-img-dark {
     display: block;
 }
 
-/* Fallback para texto caso a imagem não carregue */
 .logo-text {
     font-size: 24px;
     font-weight: 700;
@@ -185,30 +183,43 @@ body.dark-mode .logo-img-dark {
 
 /* Seção Hero */
 .hero {
+    position: relative;
     padding: 200px 0 80px;
-    text-align: center;
+    text-align: left;
+    overflow: hidden;
 }
 
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+
 .hero-title {
-    font-size: 3.7rem;
+    font-size: 2.4em;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     line-height: 1.2;
+    color: #fff;
+    margin-left: 3.5%;
+
 }
 
 .hero-title .highlight {
-    color: var(--primary-color);
+    color: #007bff;
 }
 
 .hero-description {
-    font-size: 1.5rem;
-    max-width: 800px;
-    margin: 0 auto 40px;
-    color: var(--text-light);
+    font-size: 1.4em;
+    max-width: 1000px;
+    color: #fff;
+    margin-bottom: 20px;
+    margin-left: 3.5%;
+
 }
 
 .hero-description .highlight {
-    color: var(--primary-color);
+    color: #007bff;
     font-weight: 600;
 }
 
@@ -216,7 +227,30 @@ body.dark-mode .logo-img-dark {
     display: flex;
     gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
+    margin-top: 110px;
+}
+
+.rectangle, .rectangle-darkmode {
+    position: absolute;
+    z-index: 1;
+    top: 15%;
+    left: 0%;
+    width: 100%;
+    height: 55%;
+    border-radius: 60px;
+
+}
+
+.rectangle-darkmode {
+    display: none;
+}
+
+body.dark-mode .rectangle {
+    display: none;
+}
+
+body.dark-mode .rectangle-darkmode {
+    display: block;
 }
 
 /* Botões */
@@ -230,6 +264,7 @@ body.dark-mode .logo-img-dark {
     border: 2px solid transparent;
     cursor: pointer;
     font-size: 1rem;
+
 }
 
 .btn-primary {
@@ -273,7 +308,8 @@ section {
     display: block;
     width: 10%;
     height: 3px;
-    background: var(--primary-color); /* linha azul */
+    background: var(--primary-color);
+    /* linha azul */
     margin: 8px auto 0;
     border-radius: 4px;
 }
@@ -286,6 +322,7 @@ section {
     margin-top: 125px;
     text-align: left;
     color: var(--text-light);
+    z-index: 0;
 }
 
 .about-description .highlight {
@@ -299,16 +336,19 @@ section {
     text-align: center;
     margin-bottom: 100px;
     color: var(--text-color);
+    z-index: 0;
 }
 
-.mv-title::after  {
+.mv-title::after {
     content: "";
     display: block;
     width: 20%;
     height: 3px;
-    background: var(--primary-color); /* linha azul */
+    background: var(--primary-color);
+    /* linha azul */
     margin: 8px auto 0;
     border-radius: 4px;
+    z-index: 0;
 }
 
 .cards-container {
@@ -316,6 +356,7 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    z-index: 0;
 }
 
 .card {
@@ -324,10 +365,12 @@ section {
     border-radius: 12px;
     box-shadow: 0 4px 20px var(--shadow);
     transition: transform 0.3s ease;
+    z-index: 0;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    z-index: 0;
 }
 
 .card-title {
@@ -336,12 +379,14 @@ section {
     color: var(--primary-color);
     margin-bottom: 15px;
     text-align: center;
+    z-index: 0;
 }
 
 .card-text {
     color: var(--text-light);
     line-height: 1.6;
     font-size: 1.2rem;
+    z-index: 0;
 }
 
 /* Seção Projetos */
@@ -499,7 +544,7 @@ section {
     .hamburger {
         display: flex;
     }
-    
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -512,63 +557,63 @@ section {
         box-shadow: 0 10px 27px var(--shadow);
         padding: 20px 0;
     }
-    
+
     .nav-menu.active {
         left: 0;
     }
-    
+
     .nav-menu li {
         margin: 15px 0;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-description {
         font-size: 1.1rem;
         padding: 0 20px;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .cards-container {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .project-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .contact-form {
         padding: 30px 20px;
     }
-    
+
     .project-buttons {
         justify-content: center;
     }
-    
+
     .dark-mode-toggle {
         width: 50px;
         height: 50px;
         bottom: 20px;
         right: 20px;
     }
-    
+
     .moon-icon {
         font-size: 20px;
     }
@@ -578,35 +623,35 @@ section {
     .container {
         padding: 0 15px;
     }
-    
+
     .nav-container {
         padding: 0 15px;
     }
-    
+
     .hero {
         padding: 100px 0 60px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-description {
         font-size: 1rem;
     }
-    
+
     section {
         padding: 60px 0;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .card {
         padding: 20px;
     }
-    
+
     .contact-form {
         padding: 20px 15px;
     }
@@ -614,10 +659,13 @@ section {
 
 @media (min-width: 769px) {
     .hero {
-        padding: 200px 0 140px; /* espaço da navbar até o conteúdo */
+        padding: 200px 0 140px;
+        /* espaço da navbar até o conteúdo */
 
-        max-width: 900px; /* largura máxima do bloco de texto */
-        margin: 0 auto;   /* centraliza o bloco na tela */
+        max-width: 1200px;
+        /* largura máxima do bloco de texto */
+        margin: 0 auto;
+        /* centraliza o bloco na tela */
     }
 
     .hero-title {
@@ -632,7 +680,8 @@ section {
     .hero-buttons {
         margin-left: 2%;
         display: flex;
-        justify-content: flex-start; /* garante que os botões sigam o alinhamento do texto */
+        justify-content: flex-start;
+        /* garante que os botões sigam o alinhamento do texto */
     }
 }
 
@@ -641,6 +690,7 @@ section {
 .ods {
     text-align: center;
     padding: 70px;
+    background-color: #007bff;
 }
 
 .ods-title {
@@ -649,7 +699,7 @@ section {
     margin-bottom: 140px;
     position: relative;
     display: inline-block;
-    color: var(--text-color);
+    color: white;
 
 }
 
@@ -658,7 +708,8 @@ section {
     display: block;
     width: 60%;
     height: 3px;
-    background: var(--primary-color); /* linha azul */
+    background: white;
+    /* linha azul */
     margin: 8px auto 0;
     border-radius: 4px;
 }
@@ -680,21 +731,28 @@ section {
 
 .ods-img {
     width: 100%;
-    max-width: 800px; /* imagem maior */
+    max-width: 800px;
+    /* imagem maior */
     height: auto;
     border-radius: 12px;
 }
 
 body.dark-mode .ods-card {
-    background-color: var(--dark-card-background);
     box-shadow: 0 4px 12px var(--dark-shadow);
+    background-color: white;
+}
+
+body.dark-mode .ods {
+    box-shadow: 0 4px 12px var(--dark-shadow);
+    background-color: #438fcc;
 }
 
 .ods-text {
     font-size: 1.2rem;
     line-height: 1.8;
     text-align: center;
-    color: #e95420; /* cor igual à do ícone ODS */
+    color: #e95420;
+    /* cor igual à do ícone ODS */
     font-weight: bold;
 }
 
@@ -705,7 +763,8 @@ body.dark-mode .ods-card {
     }
 
     .ods-img {
-        max-width: 100%; /* ocupar toda a largura no mobile */
+        max-width: 100%;
+        /* ocupar toda a largura no mobile */
     }
 }
 
@@ -714,128 +773,118 @@ body.dark-mode .ods-card {
 
 /* Adicionando variáveis de cor para as ondas */
 :root {
-  --wave-color-1: rgba(0, 123, 255, 0.6);
-  --wave-color-2: rgba(0, 123, 255, 0.4);
-  --wave-color-3: rgba(0, 123, 255, 0.2);
+    --wave-color-1: rgba(0, 71, 204, 0.712);
+    --wave-color-2: rgba(0, 123, 255, 0.4);
+    --wave-color-3: rgba(0, 123, 255, 0.2);
 }
 
 body.dark-mode {
-  --wave-color-1: rgba(77, 171, 247, 0.6);
-  --wave-color-2: rgba(77, 171, 247, 0.4);
-  --wave-color-3: rgba(77, 171, 247, 0.2);
+    --wave-color-1: #4dabf799;
+    --wave-color-2: #4dabf766;
+    --wave-color-3: #4dabf733;
 }
 
-.wave-container {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 200px;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
-.wave-left {
-  left: 0;
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: white;
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+    vertical-align: bottom;
 }
 
-.wave-right {
-  right: 0;
-  transform: scaleX(-1);
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-.wave-container svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+.about {
+    position: relative;
+    /* para o absolute da onda funcionar */
+    overflow: hidden;
 }
 
-/* Estilos individuais para cada camada da onda */
-.wave-1, .wave-2, .wave-3 {
-  fill-opacity: 1;
+.wave-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    z-index: 0;
 }
 
-.wave-1 {
-  fill: var(--wave-color-1);
-  animation: waveMove1 6s ease-in-out infinite;
+.wave-background svg {
+    width: 200%;
+    /* dobra a largura pra animar em loop */
+    height: 100%;
 }
 
-.wave-2 {
-  fill: var(--wave-color-2);
-  animation: waveMove2 8s ease-in-out infinite;
+.wave1 {
+    fill: var(--wave-color-1);
+    animation: wave1 15s linear infinite;
 }
 
-.wave-3 {
-  fill: var(--wave-color-3);
-  animation: waveMove3 10s ease-in-out infinite;
+.wave2 {
+    fill: var(--wave-color-2);
+    animation: wave2 20s linear infinite;
 }
 
-/* Animações fluidas e naturais para as ondas */
-@keyframes waveMove1 {
-  0%, 100% {
-    transform: translateY(0px) scaleY(1) scaleX(1);
-  }
-  25% {
-    transform: translateY(-15px) scaleY(1.02) scaleX(1.01);
-  }
-  50% {
-    transform: translateY(-8px) scaleY(0.98) scaleX(0.99);
-  }
-  75% {
-    transform: translateY(-22px) scaleY(1.01) scaleX(1.005);
-  }
+.wave3 {
+    fill: var(--wave-color-3);
+    animation: wave3 25s linear infinite;
 }
 
-@keyframes waveMove2 {
-  0%, 100% {
-    transform: translateY(0px) scaleY(1) scaleX(1);
-  }
-  33% {
-    transform: translateY(-12px) scaleY(1.015) scaleX(1.008);
-  }
-  66% {
-    transform: translateY(-18px) scaleY(0.985) scaleX(0.992);
-  }
+@keyframes wave1 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
-@keyframes waveMove3 {
-  0%, 100% {
-    transform: translateY(0px) scaleY(1) scaleX(1);
-  }
-  50% {
-    transform: translateY(-10px) scaleY(1.005) scaleX(1.002);
-  }
+@keyframes wave2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
-/* Esconde as ondas em telas menores (mobile) */
-@media (max-width: 992px) {
-  .wave-container {
-    display: none;
-  }
+@keyframes wave3 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
-
-{
-  .btn-primary,
-  .btn-primary:active,
-  .btn-primary:focus,
-  .btn-primary:visited {
-      color: #fff !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
