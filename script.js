@@ -66,21 +66,39 @@ document.addEventListener('DOMContentLoaded', function() {
     function initDarkMode() {
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
         if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
             body.classList.add('dark-mode');
+        }
+
+        // Atualizar imagem do projeto
+        const projectImage = document.getElementById('projectImage');
+        if (body.classList.contains('dark-mode')) {
+            projectImage.src = 'images/conserta-dark.png';
+        } else {
+            projectImage.src = 'images/conserta-light.png';
         }
     }
     
     function toggleDarkMode() {
         body.classList.toggle('dark-mode');
-        
+
         const isDark = body.classList.contains('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        
+
         // Atualizar ícone do botão
         const moonIcon = darkModeToggle.querySelector('.moon-icon');
         moonIcon.textContent = isDark ? '☀️' : '🌙';
+
+        // Atualizar imagem do projeto
+        const projectImage = document.getElementById('projectImage');
+        if (isDark) {
+            projectImage.src = 'images/conserta-dark.png';
+        } else {
+            projectImage.src = 'images/conserta-light.png';
+        }
+
+        console.log('Dark mode toggled', isDark);
     }
     
     // Event listeners
@@ -262,9 +280,3 @@ function updateOdsImage() {
 // Executar no load e resize
 window.addEventListener('load', updateOdsImage);
 window.addEventListener('resize', updateOdsImage);
-
-
-
-
-
-
