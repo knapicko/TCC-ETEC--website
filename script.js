@@ -78,6 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             projectImage.src = 'images/conserta-light.png';
         }
+
+        // Atualizar ícone do botão
+        const moonIcon = darkModeToggle.querySelector('.moon-icon');
+        moonIcon.src = body.classList.contains('dark-mode') ? 'images/claro.png' : 'images/escuro.png';
     }
     
     function toggleDarkMode() {
@@ -88,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Atualizar ícone do botão
         const moonIcon = darkModeToggle.querySelector('.moon-icon');
-        moonIcon.textContent = isDark ? '☀️' : '🌙';
+        moonIcon.src = isDark ? 'images/claro.png' : 'images/escuro.png';
 
         // Atualizar imagem do projeto
         const projectImage = document.getElementById('projectImage');
@@ -262,6 +266,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 body.classList.add('dark-mode');
             } else {
                 body.classList.remove('dark-mode');
+            }
+
+            // Atualizar ícone do botão
+            const moonIcon = darkModeToggle.querySelector('.moon-icon');
+            moonIcon.src = body.classList.contains('dark-mode') ? 'images/claro.png' : 'images/escuro.png';
+
+            // Atualizar imagem do projeto
+            const projectImage = document.getElementById('projectImage');
+            if (body.classList.contains('dark-mode')) {
+                projectImage.src = 'images/conserta-dark.png';
+            } else {
+                projectImage.src = 'images/conserta-light.png';
             }
         }
     });
