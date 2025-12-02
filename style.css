@@ -231,7 +231,8 @@ body.dark-mode .logo-img-dark {
     margin-top: 110px;
 }
 
-.rectangle, .rectangle-darkmode {
+.rectangle,
+.rectangle-darkmode {
     position: absolute;
     z-index: 1;
     top: 15%;
@@ -358,7 +359,7 @@ section {
     gap: 30px;
     margin-top: 40px;
     z-index: 0;
-    
+
 }
 
 .card {
@@ -412,28 +413,28 @@ body.dark-mode .projects {
 .project-image {
     display: flex;
     justify-content: center;
-    
 
-.image-placeholder {
-    width: 100%;
-    max-width: 400px;
-    height: 500px;
-    background-color: var(--card-background);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px var(--shadow);
-    border: 2px solid;
-    border-color: grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-}
+    .image-placeholder {
+        width: 100%;
+        max-width: 400px;
+        height: 500px;
+        background-color: var(--card-background);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px var(--shadow);
+        border: 2px solid;
+        border-color: grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+    }
 }
 
 .project-title {
@@ -513,7 +514,7 @@ body.dark-mode .contact {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 20px var(--shadow);
-    
+
 }
 
 .form-group {
@@ -565,6 +566,12 @@ body.dark-mode .contact {
 
 .dark-mode-toggle:hover {
     transform: scale(1.1);
+}
+
+.dark-mode-toggle img {
+    height: 30px;
+    width: auto;
+
 }
 
 .moon-icon {
@@ -620,7 +627,8 @@ body.dark-mode .contact {
         align-items: center;
     }
 
-    .rectangle, .rectangle-darkmode {
+    .rectangle,
+    .rectangle-darkmode {
         display: none !important;
     }
 
