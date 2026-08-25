@@ -1,4 +1,4 @@
-# ⚡ ION — Website TCC (ETEC)
+# ION — Website TCC (ETEC)
 
 > **Projeto de Conclusão de Curso (TCC) desenvolvido para o curso técnico na ETEC.**
 > 
